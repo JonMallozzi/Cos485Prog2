@@ -23,20 +23,7 @@ public class LoadBalance
     //
     // In this simple code some tasks will be lost if the number of tasks is not evenly
     // divisible by the number of processors.
-    public static int loadBalance(int procs, int[] tasks, int[] partitions)	{	
-        /*int avg = tasks.length / procs;  // the number of tasks for each processor
-
-        // count total work in each partition
-        int max = 0;                  // keeps track of the max partition sum
-        int taskNum = 0; 
-        for (int procNum = 0; procNum < procs; procNum++) {
-            int total = 0;
-            for (int cnt = 0; cnt < avg; cnt++)
-                total += tasks[taskNum++];
-            partitions[procNum] = total;
-            if (total > max) 
-                max = total;
-                 }*/
+    public static int loadBalance(int procs, int[] tasks, int[] partitions)	{
     	
     	//workload of the largest partition 
     	int max = 0;
@@ -56,13 +43,9 @@ public class LoadBalance
     	
     	//Average workload for each process should be around
     	int avg = total / procs;
-    	
-    	System.out.println(total);
-    	System.out.println(avg);
        
     	for (int cnt = 0; cnt < tasks.length ; cnt++) {
-    	
-    	
+
     		System.out.println("partNum: " + tasks[cnt]);	
     	if (avg > partTotal && ((partTotal + tasks[cnt]) < avg)) {
     		
